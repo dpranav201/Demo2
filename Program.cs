@@ -4,15 +4,56 @@
     {
         static void Main(string[] args)
         {
-            GeneralManager m = new GeneralManager("parag", 10,"GM","ABC",50000);
-            Console.WriteLine(m.Name);
-            Console.WriteLine(m.EmpNo);
-            Console.WriteLine(m.Basic);
-            Console.WriteLine(m.DeptNo);
-            Console.WriteLine(m.Designation);
-            Console.WriteLine(m.Perks);
-            Console.WriteLine(m.CalcNetSalary());
-            m.insert();
+            bool sel = true;
+            Console.WriteLine("1 for General Manager 2 for Manger 3 for CEO");
+            do
+            {
+                
+                Console.WriteLine("Enter Your Choice");
+                int choice=Convert.ToInt32(Console.ReadLine());
+                switch(choice) 
+                {
+                    case 1: Console.WriteLine("Enter the Name");
+                        string name=Console.ReadLine();
+                        Console.WriteLine("Insert Basic Salary");
+                        decimal basic=Convert.ToDecimal(Console.ReadLine());
+                        Console.WriteLine("Enter the Deptno");
+                        short deptno=Convert.ToInt16(Console.ReadLine());
+                        Console.WriteLine("Enter Departm");
+                        string deptname=Console.ReadLine();
+                        Console.WriteLine("enter tyhe perks");
+                        string perks=Console.ReadLine();
+                        GeneralManager m=new GeneralManager(name,deptno,deptname,perks,basic);
+                        PrintfGM(m);
+                        Console.WriteLine("enter true or false");
+                        m.insert();
+                        sel =Convert.ToBoolean(Console.ReadLine());
+                        
+
+                        break;
+                        /*GeneralManager m = new GeneralManager("parag", 10, "GM", "ABC", 50000);
+                        Console.WriteLine(m.Name);
+                        Console.WriteLine(m.EmpNo);
+                        Console.WriteLine(m.Basic);
+                        Console.WriteLine(m.DeptNo);
+                        Console.WriteLine(m.Designation);
+                        Console.WriteLine(m.Perks);
+                        Console.WriteLine(m.CalcNetSalary());
+                        m.insert();*/
+                }
+
+            }while(sel);
+            static void PrintfGM(GeneralManager m)
+            {
+                Console.WriteLine(m.Name);
+                Console.WriteLine(m.EmpNo);
+                Console.WriteLine(m.Basic);
+                Console.WriteLine(m.DeptNo);
+                Console.WriteLine(m.Designation);
+                Console.WriteLine(m.Perks);
+                Console.WriteLine(m.CalcNetSalary());
+            }
+             
         }
         public interface IDbf
         {
